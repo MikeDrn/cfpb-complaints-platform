@@ -1,0 +1,24 @@
+source_issue,issue_group,label_versions,note
+Charged fees or interest I didn't expect,Unexpected fees or interest,v1,first-person wording before 2017
+Charged fees or interest you didn't expect,Unexpected fees or interest,v2;v3,second-person wording after April 2017
+Can't stop charges to bank account,Bank account withdrawals,v1,
+Charged bank acct wrong day or amt,Bank account withdrawals,v1,abbreviated wording before 2017
+Can't stop withdrawals from your bank account,Bank account withdrawals,v2;v3,
+Money was taken from your bank account on the wrong day or for the wrong amount,Bank account withdrawals,v2;v3,
+Payment to acct not credited,Repayment and payoff,v1,abbreviated wording before 2017
+Loan payment wasn't credited to your account,Repayment and payoff,v2;v3,
+Struggling to pay your loan,Repayment and payoff,v2;v3,no equivalent before 2017
+Problem with the payoff process at the end of the loan,Repayment and payoff,v2;v3,no equivalent before 2017
+Can't contact lender,Contacting the lender,v1,
+Can't contact lender or servicer,Contacting the lender,v2;v3,
+Received a loan I didn't apply for,Loan origination,v1,
+Received a loan you didn't apply for,Loan origination,v2;v3,
+Applied for loan/did not receive money,Loan origination,v1,
+"Was approved for a loan, but didn't receive the money",Loan origination,v2;v3,
+Incorrect information on your report,Credit reporting,v2;v3,credit-report issues filed under the loan product
+Improper use of your report,Credit reporting,v2;v3,
+Problem with a credit reporting company's investigation into an existing problem,Credit reporting,v2,
+Problem with a company's investigation into an existing problem,Credit reporting,v3,
+Credit monitoring or identity theft protection services,Credit reporting,v2;v3,
+Unable to get your credit report or credit score,Credit reporting,v2;v3,
+Problem with fraud alerts or security freezes,Credit reporting,v2;v3,

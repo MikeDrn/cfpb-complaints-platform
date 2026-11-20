@@ -6,6 +6,7 @@ x-platform: &platform
     dockerfile: docker/platform.Dockerfile
   image: cfpb-platform:1.0
   env_file: .env
+  dns: [8.8.8.8, 1.1.1.1]
   volumes:
     - ./:/app
     - ivy_cache:/root/.ivy2          # caches the Spark S3A jars between runs
@@ -14,6 +15,7 @@ x-platform: &platform
       condition: service_started
     mongo:
       condition: service_healthy
+      
 
 services:
   minio:
@@ -43,6 +45,7 @@ services:
 
   nifi:
     image: apache/nifi:1.28.1
+    dns: [8.8.8.8, 1.1.1.1]
     environment:
       NIFI_WEB_HTTP_PORT: "8080"      # plain HTTP for local classroom use
       NIFI_JVM_HEAP_INIT: "1g"
@@ -67,7 +70,7 @@ services:
   collector:                          # small API that NiFi will call on a schedule
     <<: *platform
     command: ["uvicorn", "ingestion.service:app", "--host", "0.0.0.0", "--port", "8000"]
-    ports: ["8000:8000"]
+    ports: ["8001:8000"]
     restart: unless-stopped
 
   dashboard:

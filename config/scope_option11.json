@@ -1,0 +1,43 @@
+{
+  "option": 11,
+  "option_name": "Payday lending",
+  "scope_definition": "Complaints about payday loans: the stand-alone 'Payday loan' product (2013-2017) and the 'Payday loan' sub-product of the two later combined loan products.",
+  "verified_on": "2026-11-20",
+  "filters": [
+    {
+      "label_version": "v1_2013_2017",
+      "product": "Payday loan",
+      "sub_product": null,
+      "observed_from": "2013-11-06",
+      "observed_to": "2017-04-21",
+      "records_observed": 5528
+    },
+    {
+      "label_version": "v2_2017_2023",
+      "product": "Payday loan, title loan, or personal loan",
+      "sub_product": "Payday loan",
+      "observed_from": "2017-04-24",
+      "observed_to": "2023-08-24",
+      "records_observed": 6963
+    },
+    {
+      "label_version": "v3_2023_now",
+      "product": "Payday loan, title loan, personal loan, or advance loan",
+      "sub_product": "Payday loan",
+      "observed_from": "2023-08-25",
+      "observed_to": null,
+      "records_observed": 6552
+    }
+  ],
+  "api_product_params": [
+    "Payday loan",
+    "Payday loan, title loan, or personal loan\u2022Payday loan",
+    "Payday loan, title loan, personal loan, or advance loan\u2022Payday loan"
+  ],
+  "excluded_on_purpose": [
+    "Title loan, installment loan, personal line of credit, pawn loan, earned wage access and other advances: same parent products, different sub-products (belong to option 6 or out of scope)",
+    "'Consumer Loan' product (2012-2017): has no payday sub-product"
+  ],
+  "trend_granularity": "quarter",
+  "trend_granularity_reason": "About 20-280 complaints per month; monthly counts are sparse for 2013 and 2020-2022, so trends are reported by quarter (brief option 11)."
+}
