@@ -1,5 +1,5 @@
 # Findings — option 11: Payday lending
-Generated 2026-11-20 22:34 UTC by `analytics/analysis.py` from the MongoDB serving layer (run `api_20261120T210549Z_80feec`, quality status `warn`). All CSV outputs are in `analytics/outputs/`.
+Generated 2026-11-20 22:40 UTC by `analytics/analysis.py` from the MongoDB serving layer (run `api_20261120T223848Z_3d0e3f`, quality status `pass`). All CSV outputs are in `analytics/outputs/`.
 
 ## Scope and metric definitions
 - **Scope:** 19,043 distinct curated Complaint IDs about payday loans, received 2013-11-06 → 2026-11-18.
@@ -14,7 +14,7 @@ Generated 2026-11-20 22:34 UTC by `analytics/analysis.py` from the MongoDB servi
 - Receipt-to-referral: median **0** days, mean 5.1, 90th percentile 12 (n = 19,017).
 - Leading issue group: **Unexpected fees or interest** (33.0 %).
 - Channel: Web 91.5 %; state missing for 183 complaints.
-- Freshness: latest complaint 2026-11-18; latest successful ingestion 2026-11-20T21:05:50Z; serving layer refreshed 2026-11-20 21:06:46.107000.
+- Freshness: latest complaint 2026-11-18; latest successful ingestion 2026-11-20T22:38:50Z; serving layer refreshed 2026-11-20 22:39:58.242000.
 
 ### Yearly counts
 | year | complaints | coverage | change vs previous year (%) |

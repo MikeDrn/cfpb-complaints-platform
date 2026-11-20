@@ -49,3 +49,9 @@ def test_broken_reconciliation_fails():
     checks, overall = evaluate(base_report(reconciliation={"check_raw_equals_filtered_plus_in_scope": False}),
                                load_thresholds())
     assert overall == "fail"
+
+def test_flag_percentage_uses_all_checked_records_in_incremental_runs():
+    rep = base_report(reconciliation={"in_scope": 5, "valid_new": 5, "previously_curated": 19043, "valid": 19048},
+                      validity_flags={"negative_processing_lag": 26})
+    checks, _ = evaluate(rep, load_thresholds())
+    assert status_of(checks, "flag_negative_processing_lag_pct") == "pass"

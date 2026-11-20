@@ -108,7 +108,8 @@ def evaluate(report, t):
     if sp is not None:
         add("completeness_sub_product_where_applicable", sp, ">= 100", sp >= 100)
     for flag, maximum in t["max_flag_pct_warn"].items():
-        pct = round(100.0 * report["validity_flags"].get(flag, 0) / in_scope, 3)
+        checked = rec.get("valid") or in_scope          # flags are counted over all records checked in this run
+        pct = round(100.0 * report["validity_flags"].get(flag, 0) / checked, 3)
         add(f"flag_{flag}_pct", pct, f"<= {maximum}", pct <= maximum, severity="warn")
     days = report["freshness"]["days_behind_today"]
     add("freshness_days", days, f"<= {t['max_freshness_days']}",
