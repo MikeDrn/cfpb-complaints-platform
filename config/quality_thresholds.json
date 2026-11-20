@@ -1,0 +1,27 @@
+{
+  "_comment": "Defined on 20 Nov 2026 BEFORE interpreting results (brief 6.3). 'fail' stops the run, 'warn' is reported.",
+  "max_rejected_pct": 0.5,
+  "required_completeness_pct": {
+    "complaint_id": 100,
+    "date_received": 100,
+    "product": 100,
+    "issue": 99.5,
+    "company": 99.5,
+    "timely_response": 99.0,
+    "company_response_to_consumer": 99.0
+  },
+  "warn_completeness_pct": {
+    "state": 98.0,
+    "submitted_via": 99.0,
+    "date_sent_to_company": 99.0,
+    "zip_code": 90.0
+  },
+  "max_flag_pct_warn": {
+    "negative_processing_lag": 0.5,
+    "invalid_state": 0.5,
+    "invalid_timely_value": 0.1,
+    "unmapped_issue": 0.0,
+    "future_date_received": 0.0
+  },
+  "max_freshness_days": 10
+}
