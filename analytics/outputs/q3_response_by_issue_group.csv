@@ -1,0 +1,7 @@
+issue_group,complaints,timely_yes,timely_valid,monetary_relief,non_monetary_relief,timely_pct,monetary_relief_pct,small_group
+Unexpected fees or interest,6283,5774,6283,243,126,91.89877447079421,3.8675791819194654,False
+Repayment and payoff,4484,4186,4484,113,107,93.35414808206959,2.52007136485281,False
+Loan origination,2813,2599,2813,43,108,92.39246356203341,1.5286171347316033,False
+Bank account withdrawals,2589,2399,2589,188,53,92.66125917342603,7.261490923136346,False
+Contacting the lender,1928,1695,1928,43,72,87.9149377593361,2.2302904564315353,False
+Credit reporting,946,908,946,5,27,95.9830866807611,0.5285412262156448,False

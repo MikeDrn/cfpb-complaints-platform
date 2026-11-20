@@ -10,5 +10,9 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# test-only libraries, in their own layer so the big install above stays cached
+COPY requirements-dev.txt .
+RUN pip install --no-cache-dir --timeout 120 --retries 10 -r requirements-dev.txt
+
 ENV PYTHONPATH=/app \
     PYTHONUNBUFFERED=1

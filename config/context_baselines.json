@@ -1,0 +1,10 @@
+{
+  "_comment": "Whole-database reference values used only as comparison baselines (not part of our curated scope).",
+  "source": "CFPB complaint API aggregations, all products, observed 17 Nov 2026 (docs/api_notes.md section 3)",
+  "total_records": 19225276,
+  "servicemember_tagged": 592026,
+  "older_american_tagged": 306166,
+  "servicemember_share_pct": 3.08,
+  "older_american_share_pct": 1.59,
+  "note": "Tag counts include complaints tagged with both labels (60,629) in each group."
+}
