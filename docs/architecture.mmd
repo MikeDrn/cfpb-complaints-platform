@@ -1,0 +1,47 @@
+flowchart LR
+    subgraph SRC["CFPB sources"]
+        ZIP["Full CSV ZIP<br/>19.3 M records"]
+        API["Complaint API<br/>daily updates"]
+    end
+    subgraph COL["Collection"]
+        NH["NiFi: historical flow<br/>download → MinIO → finalise"]
+        NS["NiFi: CRON 02:00 UTC<br/>schedule"]
+        PY["Python collector service<br/>window · search_after · retries"]
+    end
+    subgraph RAW["Raw zone · MinIO"]
+        R1[("raw/cfpb/full_load/<br/>ZIP + CSV + manifest")]
+        R2[("raw/cfpb/api/<br/>response pages per run")]
+        OPS[("ops/<br/>run logs · high-water mark")]
+    end
+    subgraph PROC["Processing · Spark"]
+        SP["validate schema · clean · option-11 filter<br/>label harmonisation · dedup · quality gate"]
+    end
+    subgraph CUR["Curated zone · MinIO"]
+        C1[("curated/complaints/option=11/<br/>Parquet by year/month")]
+        C2[("curated/aggregates/option=11/")]
+        QA[("quality/<br/>reports · rejected records")]
+    end
+    subgraph SERVE["Serving · MongoDB"]
+        M1[("complaints<br/>validator + 7 indexes")]
+        M2[("4 aggregate collections")]
+        M3[("meta: freshness · quality")]
+    end
+    DASH["Streamlit dashboard<br/>6 views"]
+    AN["Analysis script<br/>findings + CSV"]
+
+    ZIP --> NH --> R1
+    NS -->|POST /run/incremental| PY
+    API --> PY --> R2
+    PY --> OPS
+    R1 --> SP
+    R2 --> SP
+    SP --> C1
+    SP --> C2
+    SP --> QA
+    C1 --> M1
+    C2 --> M2
+    QA --> M3
+    M1 --> DASH
+    M2 --> DASH
+    M3 --> DASH
+    M1 --> AN

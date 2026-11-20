@@ -61,8 +61,8 @@ Q2 and Q5 are the two pre-declared questions for the live demonstration.
 
 | Role | Member |
 |---|---|
-| Data acquisition lead | Anna-Maria Lahoud |
-| Data engineering lead | Mike Deryene |
-| Database lead | Anna-Maria Lahoud |
-| Analytics lead | Mike Deryene |
-| Visualisation and delivery lead | Anna-Maria and Mike |
+| Data acquisition lead | Anna-Maria Lahoud and Mike Deryene |
+| Data engineering lead | Mike Deryene and Anna-Maria Lahoud |
+| Database lead | Anna-Maria Lahoud and Mike Deryene |
+| Analytics lead | Mike Deryene and Anna-Maria Lahoud |
+| Visualisation and delivery lead | Anna-Maria Lahoud and Mike Deryene |
