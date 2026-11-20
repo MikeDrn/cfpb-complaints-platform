@@ -194,7 +194,9 @@ def main():
         "April 2017 and August 2023; the series is continuous because the three labels do not overlap.",
         "",
         "## Q2 — Has the issue mix changed across the three label periods? *(demo question)*",
-        md(q2w.rename(columns={"issue_group": "issue group (% of period)"})),
+        md(q2w.fillna("—").rename(columns={"issue_group": "issue group (% of period)"})),
+        "",
+        "— = the category did not exist in that period.",
         "",
         "*Caution:* the April 2017 form added 'Struggling to pay your loan' and 'Problem with the payoff process', and "
         "seven credit-reporting issues. The jump in 'Repayment and payoff' and the appearance of 'Credit reporting' "
@@ -212,7 +214,7 @@ def main():
         "`issue_mix_distance` = half the sum of absolute differences between a state's issue-group shares and the "
         "national shares (0 = identical mix, 1 = completely different).",
         "",
-        md(q4.head(10)),
+        md(q4.head(10), floatfmt=3),
         "",
         "*Caution:* shares avoid population size but still describe complaints, not how often borrowers have problems; "
         "payday lending is regulated differently across states, which affects how many loans exist at all.",

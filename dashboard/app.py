@@ -25,14 +25,16 @@ BASELINES = json.load(open(os.path.join("config", "context_baselines.json"), enc
 
 def style(fig, height=380, room=None, axis="x"):
     """Common look: recessive grid, legend outside the plot, room for value labels outside the bars."""
-    fig.update_layout(template="plotly_white", height=height, margin=dict(l=10, r=10, t=50, b=10),
+    # no fixed template: Streamlit's theme supplies light/dark surfaces and subtle grid colours
+    fig.update_layout(height=height, margin=dict(l=10, r=10, t=50, b=10),
                       legend=dict(orientation="v", x=1.01, y=1, title_text=""), font=dict(size=13),
                       bargap=0.35)
     fig.update_traces(cliponaxis=False, selector=dict(type="bar"))
+    if any(getattr(t, "orientation", None) == "h" for t in fig.data):
+        fig.update_yaxes(showgrid=False)
     if room is not None:
         (fig.update_xaxes if axis == "x" else fig.update_yaxes)(range=[0, room * 1.18])
     fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(gridcolor="#ececea")
     return fig
 
 
@@ -62,7 +64,7 @@ first_day = date(2013, 11, 1)
 
 # ------------------------------------------------------------------ sidebar filters
 st.sidebar.header("Filters")
-period = st.sidebar.date_input("Date received", (date(2014, 1, 1), latest_day),
+period = st.sidebar.date_input("Date received", (first_day, latest_day),
                                min_value=first_day, max_value=latest_day, format="YYYY-MM-DD")
 issue_groups = st.sidebar.multiselect("Issue group", opts["issue_groups"])
 states = st.sidebar.multiselect("State", opts["states"])
@@ -133,10 +135,13 @@ with tabs[0]:
             fig.add_vline(x=quarter, line_dash="dot", line_color=INK_MUTED)
             fig.add_annotation(x=quarter, y=q["complaints"].max(), text=label, showarrow=False,
                                xanchor="left", font=dict(size=11, color=INK_MUTED))
+    year_ticks = [x for x in q["quarter"] if x.endswith("Q1")]
+    fig.update_xaxes(tickmode="array", tickvals=year_ticks, ticktext=[x[:4] for x in year_ticks], tickangle=0)
     st.plotly_chart(style(fig.update_layout(title="Complaints per quarter (date received)",
                                             yaxis_title="Complaints", xaxis_title=None)), use_container_width=True)
-    st.caption("Quarters are used because monthly counts are small (about 150–300). Hollow markers are partial "
-               "quarters: recent complaints are still being published, so the last point will rise.")
+    st.caption("Each point is one quarter; the axis labels mark the first quarter of each year. Quarters are used "
+               "because monthly counts are small (about 50–300). Hollow markers are partial quarters: the first "
+               "quarter of the data, and the current quarter, where complaints are still being published.")
 
     y = D.yearly(get_db(), match)
     y["period covered"] = y["year"].map(lambda yr: "partial year" if date(yr, 1, 1) < start or

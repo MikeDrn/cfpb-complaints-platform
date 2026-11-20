@@ -1,5 +1,5 @@
 # Findings — option 11: Payday lending
-Generated 2026-11-20 22:18 UTC by `analytics/analysis.py` from the MongoDB serving layer (run `api_20261120T210549Z_80feec`, quality status `warn`). All CSV outputs are in `analytics/outputs/`.
+Generated 2026-11-20 22:34 UTC by `analytics/analysis.py` from the MongoDB serving layer (run `api_20261120T210549Z_80feec`, quality status `warn`). All CSV outputs are in `analytics/outputs/`.
 
 ## Scope and metric definitions
 - **Scope:** 19,043 distinct curated Complaint IDs about payday loans, received 2013-11-06 → 2026-11-18.
@@ -44,10 +44,12 @@ Complete quarters averaged **266.7** complaints in 2019–2024 and **632.9** sin
 |---|---|---|---|
 | Bank account withdrawals | 14.2 | 11.2 | 15.6 |
 | Contacting the lender | 18.3 | 7.1 | 6.5 |
-| Credit reporting |  | 7.5 | 6.5 |
+| Credit reporting | — | 7.5 | 6.5 |
 | Loan origination | 16.2 | 14.8 | 13.6 |
 | Repayment and payoff | 6.9 | 32.8 | 27.8 |
 | Unexpected fees or interest | 44.5 | 26.7 | 30.0 |
+
+— = the category did not exist in that period.
 
 *Caution:* the April 2017 form added 'Struggling to pay your loan' and 'Problem with the payoff process', and seven credit-reporting issues. The jump in 'Repayment and payoff' and the appearance of 'Credit reporting' after 2017 are largely category changes, so comparisons across 2017 should focus on groups that existed in every period (unexpected fees, withdrawals, origination, contacting the lender).
 
@@ -68,16 +70,16 @@ Complete quarters averaged **266.7** complaints in 2019–2024 and **632.9** sin
 
 | state | complaints | issue_mix_distance | most_over_represented | most_under_represented |
 |---|---|---|---|---|
-| WA | 389 | 0.2 | Unexpected fees or interest (+18.4 pts) | Loan origination (-5.3 pts) |
-| NJ | 539 | 0.2 | Unexpected fees or interest (+18.4 pts) | Bank account withdrawals (-5.6 pts) |
-| WI | 338 | 0.1 | Loan origination (+7.7 pts) | Unexpected fees or interest (-9.3 pts) |
-| MD | 442 | 0.1 | Unexpected fees or interest (+12.3 pts) | Loan origination (-5.5 pts) |
-| MO | 419 | 0.1 | Bank account withdrawals (+5.7 pts) | Unexpected fees or interest (-9.4 pts) |
-| NC | 442 | 0.1 | Unexpected fees or interest (+9.5 pts) | Repayment and payoff (-2.5 pts) |
-| GA | 762 | 0.1 | Repayment and payoff (+3.5 pts) | Contacting the lender (-4.2 pts) |
-| AL | 349 | 0.1 | Repayment and payoff (+4.5 pts) | Unexpected fees or interest (-5.8 pts) |
-| TX | 2,468 | 0.1 | Loan origination (+4.2 pts) | Unexpected fees or interest (-8.7 pts) |
-| MI | 523 | 0.1 | Contacting the lender (+4.0 pts) | Repayment and payoff (-4.0 pts) |
+| WA | 389 | 0.184 | Unexpected fees or interest (+18.4 pts) | Loan origination (-5.3 pts) |
+| NJ | 539 | 0.184 | Unexpected fees or interest (+18.4 pts) | Bank account withdrawals (-5.6 pts) |
+| WI | 338 | 0.124 | Loan origination (+7.7 pts) | Unexpected fees or interest (-9.3 pts) |
+| MD | 442 | 0.123 | Unexpected fees or interest (+12.3 pts) | Loan origination (-5.5 pts) |
+| MO | 419 | 0.111 | Bank account withdrawals (+5.7 pts) | Unexpected fees or interest (-9.4 pts) |
+| NC | 442 | 0.095 | Unexpected fees or interest (+9.5 pts) | Repayment and payoff (-2.5 pts) |
+| GA | 762 | 0.091 | Repayment and payoff (+3.5 pts) | Contacting the lender (-4.2 pts) |
+| AL | 349 | 0.091 | Repayment and payoff (+4.5 pts) | Unexpected fees or interest (-5.8 pts) |
+| TX | 2,468 | 0.087 | Loan origination (+4.2 pts) | Unexpected fees or interest (-8.7 pts) |
+| MI | 523 | 0.076 | Contacting the lender (+4.0 pts) | Repayment and payoff (-4.0 pts) |
 
 *Caution:* shares avoid population size but still describe complaints, not how often borrowers have problems; payday lending is regulated differently across states, which affects how many loans exist at all.
 
