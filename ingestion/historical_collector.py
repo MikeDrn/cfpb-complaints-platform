@@ -43,7 +43,7 @@ def download(url, dest, max_retries=3, timeout=60):
     """Stream the file to disk with bounded retries. Never retries forever."""
     for attempt in range(1, max_retries + 1):
         try:
-            with requests.get(url, stream=True, timeout=timeout) as resp:
+            with requests.get(url, stream=True, timeout=timeout, headers=settings.HTTP_HEADERS) as resp:
                 resp.raise_for_status()
                 with open(dest, "wb") as fh:
                     for chunk in resp.iter_content(chunk_size=1024 * 1024):

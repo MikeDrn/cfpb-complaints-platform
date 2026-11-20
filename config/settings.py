@@ -28,6 +28,10 @@ CFPB_API_URL = os.getenv(
 LOOKBACK_DAYS = int(os.getenv("LOOKBACK_DAYS", "21"))
 API_PAGE_SIZE = int(os.getenv("API_PAGE_SIZE", "1000"))
 API_PAUSE_SECONDS = float(os.getenv("API_PAUSE_SECONDS", "0.5"))
+API_MAX_RETRIES = int(os.getenv("API_MAX_RETRIES", "4"))
+API_TIMEOUT_SECONDS = int(os.getenv("API_TIMEOUT_SECONDS", "30"))
+# The CFPB CDN (Akamai) refused Java's default client; same headers for every collector (see api_notes.md section 6)
+HTTP_HEADERS = {"User-Agent": os.getenv("HTTP_USER_AGENT", "curl/8.5.0"), "Accept": "*/*"}
 
 BUCKET_RAW, BUCKET_CURATED, BUCKET_QUALITY, BUCKET_OPS = "raw", "curated", "quality", "ops"
 # Brief 6.1: curated/complaints/option=<number>/year=YYYY/month=MM/
